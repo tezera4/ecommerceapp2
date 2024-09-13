@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductList } from '../model/product';
-import { CategoryModel } from '../model/category-model';
-import {ProductByCategoryIdModel } from '../model/product-by-category-id';
+import { CategoryModel, Product, ProductByCategoryIdModel } from '../model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +9,18 @@ import {ProductByCategoryIdModel } from '../model/product-by-category-id';
 export class ProductService {
 
   constructor(private http: HttpClient) { }
-
+apiURL:string='https://freeapi.miniprojectideas.com/api/BigBasket/';
   getAllProduct(): Observable<Product> {
-    return this.http.get<Product>("https://freeapi.miniprojectideas.com/api/BigBasket/GetAllProducts");
+    return this.http.get<Product>(this.apiURL+"GetAllProducts");
   }
 
   getAllCategory(): Observable<CategoryModel> {
-    return this.http.get<CategoryModel>("https://freeapi.miniprojectideas.com/api/BigBasket/GetAllCategory");
+    return this.http.get<CategoryModel>(this.apiURL+"GetAllCategory");
   }
 
   getProductByCategoryId(id:any):Observable<ProductByCategoryIdModel>{
-    return this.http.get<ProductByCategoryIdModel>("https://freeapi.miniprojectideas.com/api/BigBasket/GetAllProductsByCategoryId?id="+id);
+    const url=`${this.apiURL}GetAllProductsByCategoryId?id=${id}`
+    return this.http.get<ProductByCategoryIdModel>(url);
   }
 
 

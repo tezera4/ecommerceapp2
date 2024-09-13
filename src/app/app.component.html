@@ -25,9 +25,32 @@
               <li class="nav-item">
                   <a class="nav-link" href="#">Projects</a>
               </li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle redHover fw-semibold text-uppercase text-black  me-1"
+                    href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa fa-user fs-5 me-1" style="color: #202122;"></i>
+                </a>
+                <ul class="dropdown-menu" style="left:-50px" aria-labelledby="navbarDropdown">
+                    <li>
+                        <div class="d-flex justify-content-evenly mt-2">
+                            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight"> <button
+                                    class="btn btn-danger rounded-0 px-3">Login</button></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> <button
+                                    class="btn btn-danger rounded-0 px-3">Register</button></a>
+                        </div>
+
+                    </li>
+
+                </ul>
+            </li> -->
           </ul>
+          
           <!-- Left links -->
       </div>
+      <button class="btn btn-success mt-2">Login</button>
+      <button class="btn btn-success mt-2" (click)="openRegisterModel()">Register</button>
       <!-- Collapsible wrapper -->
 
       <!-- Right elements -->
@@ -110,5 +133,41 @@
       </div> -->
   </div>
 </nav>
-
+<div class="modal" id="myId" #registerModel>
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Register</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+         <div class="row">
+            <div class="col-12">
+                <label for="">Name</label>
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            <div class="col-12">
+                <label for="">Mobile Number</label>
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            <div class="col-12">
+                <label for="">password</label>
+                <input type="text" name="" id="" class="form-control">
+            </div>
+         </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="saveRegister()">Register</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeRegister()">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
 <router-outlet />
