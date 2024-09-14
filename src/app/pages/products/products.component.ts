@@ -1,9 +1,8 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
-import { Product, ProductList } from '../../model/product';
-import { CategoryListModel, CategoryModel } from '../../model/category-model';
-import { ProductByCategoryIdList, ProductByCategoryIdModel } from '../../model/product-by-category-id';
+import { CategoryListModel, Product, ProductByCategoryIdList, ProductByCategoryIdModel, ProductList } from '../../model/product';
+
 import { map, Observable, Subscription } from 'rxjs';
 
 @Component({

@@ -51,11 +51,21 @@ export interface ProductByCategoryIdList {
     categoryName: string;
 }
 
-export interface RegisterModel {
-    CustId: number,
-    Name:string,
-    MobileNo:string,
-    Password:string
+//whenever you want to bind object with a form go for class 
+//template and f=
+
+export class RegisterCustomer {
+    CustId: number;
+    Name:string;
+    MobileNo:string;
+    Password:string;
+   constructor()
+    {
+        this.CustId=0;
+        this.Name='';
+        this.MobileNo='';
+        this.Password='';
+    }
    }
 
 
