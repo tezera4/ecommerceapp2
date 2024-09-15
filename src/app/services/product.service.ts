@@ -6,6 +6,9 @@ import {
   RegisterCustomer,
   Product,
   ProductByCategoryIdModel,
+  ApiResponseModel,
+  LoginModel,
+  AddToCartModel,
 } from '../model/product';
 
 @Injectable({
@@ -27,10 +30,15 @@ export class ProductService {
     return this.http.get<ProductByCategoryIdModel>(url);
   }
 
-  registerCustomer(customer: RegisterCustomer) {
-    return this.http.post(
-      'https://freeapi.miniprojectideas.com/api/BigBasket/RegisterCustomer',
-      customer
-    );
+  registerCustomer(customer: RegisterCustomer):Observable<ApiResponseModel> {
+    return this.http.post<ApiResponseModel>('https://freeapi.miniprojectideas.com/api/BigBasket/RegisterCustomer',customer);
+  }
+
+  login(loginModel: LoginModel):Observable<ApiResponseModel> {
+    return this.http.post<ApiResponseModel>('https://freeapi.miniprojectideas.com/api/BigBasket/Login',loginModel);
+  }
+  addToCart(addToCartModel:AddToCartModel):Observable<ApiResponseModel>{
+    debugger
+    return this.http.post<ApiResponseModel>("https://freeapi.miniprojectideas.com/api/BigBasket/AddToCart",addToCartModel);
   }
 }
