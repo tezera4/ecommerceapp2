@@ -94,7 +94,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.productService.addToCart(addtoCartObj).subscribe(
       (resp: ApiResponseModel) => {
         if (resp.result) {
+          //the following line of code is used for inter component communication.
+          this.productService.addToCartSubject.next(true);
           alert("add to cart is successful");
+          
         } else {
           alert("There is an issue");
         }
